@@ -1,1 +1,1 @@
-python-3.9.13  # or another version like python-3.10.0
+python-3.10.0
