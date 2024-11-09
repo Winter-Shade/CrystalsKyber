@@ -116,5 +116,5 @@ def create_matrix_html(matrix, name):
 def create_vector_html(vector, name):
     return '<br>'.join([f"{name}[{i}]: \\({latex(vector[i, 0].as_expr())}\\)" for i in range(3)])
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
