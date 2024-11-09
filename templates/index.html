@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %} Kyber KEM {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <p class="step-name">01. Kyber-PKE Key Generation by Alice</p>
+    <button type="button" onclick="generateKeys()" class="gumroad">Generate Keys</button>
+    
+    <!-- Matrix Sections Container -->
+    <div id="matrixSection" style="display: none;">
+        
+        <h2>A Matrix (Public Key)</h2>
+        <div class="scrollable-box">
+            <table class="matrix-table">
+                {% for i in range(3) %}
+                <tr>
+                    {% for j in range(3) %}
+                    <td><button class="poly-button" onclick="showPolynomial('A', '{{ i }},{{ j }}', '{{ i|string + j|string }}')">A[{{ i }},{{ j }}]</button></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="A_polynomialDisplay" class="scrollable-box" style="display:none"></div>
+
+        <h2>t Matrix (Public Key)</h2>
+        <div class="scrollable-box">
+            <table class="matrix-table">
+                {% for i in range(3) %}
+                <tr>
+                    <td><button class="poly-button" onclick="showPolynomial('t', '{{ i }}', '{{ i|string }}')">t[{{ i }}]</button></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="t_polynomialDisplay" class="scrollable-box" style="display:none"></div>
+
+        <h2>s Matrix (Private Key)</h2>
+        <div class="scrollable-box">
+            <table class="matrix-table">
+                {% for i in range(3) %}
+                <tr>
+                    <td><button class="poly-button" onclick="showPolynomial('s', '{{ i }}', '{{i|string }}')">s[{{ i }}]</button></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="s_polynomialDisplay" class="scrollable-box" style="display:none"></div>
+    </div>
+</div>
+
+<!-- Encryption Section -->
+<div class="card">
+    <p class="step-name">02: Encryption by BOB</p>
+    <label for="binaryMessage">Enter the binary message to encrypt:</label>
+    <textarea id="binaryMessage" name="binaryMessage" rows="4" cols="50" required></textarea>
+    <button type="button" onclick="encryptMessage()" class="gumroad">Encrypt Message</button>
+
+    <div id="matrixSection2" style="display: none;">
+
+        <h2>u matrix (CipherText)</h2>
+        <div class="scrollable-box">
+            <table class="matrix-table">
+                {% for i in range(3) %}
+                <tr>
+                    {% for j in range(1) %}
+                    <td><button class="poly-button" onclick="showPolynomial('u', '{{ i }}', '{{ i|string }}')">u[{{ i }}]</button></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="u_polynomialDisplay" class="scrollable-box" style="display:none"></div>
+
+        <h2>v (CipherText)</h2>
+        <div class="scrollable-box">
+            <table class="matrix-table">
+                <tr>
+                    {% for j in range(1) %}
+                    <td><button class="poly-button" onclick="showPolynomial('v', '', '')">v</button></td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+        <div id="v_polynomialDisplay" class="scrollable-box" style="display:none"></div>
+
+    </div>
+    
+</div>
+
+<!-- Decryption Section -->
+<div class="card">
+    <p class="step-name">03: Decryption by ALICE</p>
+    <button type="button" onclick="decryptMessage()" class="gumroad">Decrypt Message</button>
+    <div id="message_display"></div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% if error %}
+    <div class="error">{{ error }}</div>
+{% endif %}
+{% endblock %}
