@@ -7,9 +7,9 @@ Kyber-PKE Simulation (Ongoing)
 - Frontend (Almost Done)
 - (Optional)Implement Dilithium if possible (Working
 
-Team Members:
+## Team Members:
 
-Srijan Shukla (22bcs124)
-Ojasv Sakhi (22bcs077)
-Prem Prakash (22bcs090)
-Shiva Rathore (22bcs116)
+- Srijan Shukla (22bcs124)
+- Ojasv Sakhi (22bcs077)
+- Prem Prakash (22bcs090)
+- Shiva Rathore (22bcs116)
