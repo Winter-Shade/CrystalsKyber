@@ -1,6 +1,6 @@
 Kyber-PKE Simulation (Ongoing)
 
-##Project Status:
+## Project Status:
 
 - Implement a simplified version of KyberPKE (DONE)
 - Optimizations - Implement Kyber-KEM full scheme (Almost Done)
