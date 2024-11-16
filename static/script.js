@@ -81,3 +81,13 @@ function showPolynomial(matrixName, index, displayId) {
     })
     .catch(error => console.error('Error fetching polynomial:', error));
 }
+
+function openModal() {
+    document.getElementById("infoModal").style.display = "block";
+    document.body.style.overflow = "hidden"; // Disable scrolling
+}
+
+function closeModal() {
+    document.getElementById("infoModal").style.display = "none";
+    document.body.style.overflow = "auto"; // Enable scrolling
+}
