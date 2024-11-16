@@ -4,9 +4,45 @@
 
 {% block content %}
 
+<p class="step-name">
+    KYBER-PKE ToolBox
+    <button class="circular-button" onclick="openModal()">?</button>
+</p>
+
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>About Kyber-PKE</h2>
+        <ul>
+            <li>Kyber is a quantum safe Key Encapsulation Mechanism (KEM).</li>
+            <li>Standardized by NIST in FIPS 203, where it is called ML-KEM (Module Lattice Based Key Encapsulation Mechanism).</li>
+            <li>Kyber-KEM was designed by applying the Fujisaki-Okamoto transform to a public-key encryption scheme (Kyber-PKE).</li>
+        </ul>
+    </div>
+</div>
+
+
 <div class="card">
     <p class="step-name">01. Kyber-PKE Key Generation by Alice</p>
+
+    <!-- Algorithm Details Section -->
+    <div class="algorithm-details">
+        <p>
+            (i) Select \( A \in \mathbb{R}_{q}^{k \times k} \), 
+            \( \mathbf{s} \in S_{\eta_1}^k \), 
+            \( \mathbf{e} \in S_{\eta_2}^k \).
+        </p>
+        <p>
+            (ii) \( \mathbf{t} = A \mathbf{s} + \mathbf{e} \)
+        </p>
+        <p>
+            (iii) Alice's Public Key: \( (A, \mathbf{t}) \), Alice's Private Key: \( \mathbf{s} \).
+        </p>
+    </div>
+
     <button type="button" onclick="generateKeys()" class="gumroad">Generate Keys</button>
+    
+    
     
     <!-- Matrix Sections Container -->
     <div id="matrixSection" style="display: none;">
@@ -51,16 +87,54 @@
     </div>
 </div>
 
+
 <!-- Encryption Section -->
 <div class="card">
-    <p class="step-name">02: Encryption by BOB</p>
-    <label for="binaryMessage">Enter the binary message to encrypt:</label>
-    <textarea id="binaryMessage" name="binaryMessage" rows="4" cols="50" required></textarea>
-    <button type="button" onclick="encryptMessage()" class="gumroad">Encrypt Message</button>
+    <p class="step-name">02: Encryption by Bob</p>
 
+    <!-- Algorithm Details Section -->
+    <div class="algorithm-details">
+        <p>
+            Bob selects \( m \in \{0, 1\}^n \).
+        </p>
+        <p>
+            (i) Obtain Alice's public key: \( (A, \mathbf{t}) \).
+        </p>
+        <p>
+            (ii) Select \( \mathbf{r} \in S_{\eta_1}^k \), 
+            \( \mathbf{e}_1 \in S_{\eta_2}^k \), 
+            \( \mathbf{e}_2 \in S_{\eta_2} \).
+        </p>
+        <p>
+            (iii) Compute:
+        </p>
+        <p>
+            \[
+            \mathbf{u} = A^T \mathbf{r} + \mathbf{e}_1
+            \]
+        </p>
+        <p>
+            \[
+            v = \mathbf{t}^T \mathbf{r} + \mathbf{e}_2 + \text{round}\left(\frac{q}{2}\right){m}
+            \]
+        </p>
+        <p>
+            (iv) Ciphertext: \( \mathbf{c} = (\mathbf{u}, v) \), 
+            where \( \mathbf{c} \in \mathbb{R}_q^k \times \mathbb{R}_q \).
+        </p>
+    </div>
+
+    <div class="card">
+        <label for="binaryMessage">Enter the binary message to encrypt:</label>
+        <textarea id="binaryMessage" name="binaryMessage" rows="1" cols="50" required></textarea>
+        <button type="button" onclick="encryptMessage()" class="gumroad">Encrypt Message</button>
+    </div>
+    
+    
+
+    <!-- Matrix Sections Container -->
     <div id="matrixSection2" style="display: none;">
-
-        <h2>u matrix (CipherText)</h2>
+        <h2>u Matrix (CipherText)</h2>
         <div class="scrollable-box">
             <table class="matrix-table">
                 {% for i in range(3) %}
@@ -85,17 +159,38 @@
             </table>
         </div>
         <div id="v_polynomialDisplay" class="scrollable-box" style="display:none"></div>
-
     </div>
-    
 </div>
+
 
 <!-- Decryption Section -->
 <div class="card">
-    <p class="step-name">03: Decryption by ALICE</p>
+    <p class="step-name">03: Decryption by Alice</p>
+
+    <!-- Algorithm Details Section -->
+    <div class="algorithm-details">
+        <p>
+            Alice obtains \( \mathbf{c} = (\mathbf{u}, v) \).
+        </p>
+        <p>
+            Compute:
+        </p>
+        <p>
+            \[
+            m = \text{Round}_q \left( v - \mathbf{s}^T \cdot \mathbf{u} \right)
+            \]
+        </p>
+        <p>
+            where \( \mathbf{s} \) is Alice's private key.
+        </p>
+    </div>
+
     <button type="button" onclick="decryptMessage()" class="gumroad">Decrypt Message</button>
     <div id="message_display"></div>
+
+    
 </div>
+
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
