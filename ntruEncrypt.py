@@ -137,15 +137,6 @@ def message_to_bits(message):
 
     return bits_list
 
-
-# Example usage
-# message = "Cryptography is great, isn't it gonna be greater than 256"
-# bits = message_to_bits(message)
-# print("Message:", message)
-# print("Bits:", bits)
-# print(len(bits))
-
-
 def bits_to_message(bits):
     """
     Converts a list of binary bits (coefficients) back into a string message.
@@ -174,22 +165,24 @@ N = 256  # Degree of polynomial
 p = 3   # Small modulus
 q = 2048  # Large modulus (power of 2)
 d = 3   # Number of non-zero coefficients
-
-# Generate keys
-h, sk = generate_keypair(N, p, q, d)
-
-# Example message (small polynomial)
-m = input('Enter your message: ')
-m = message_to_bits(m)
-m = Zx(m)
-
-# Encrypt and decrypt
-c = encrypt(m, h, N, q, d)
-decrypted_m = decrypt(c, sk, N, p, q)
-
 x = symbols('x')
-# Verify
-# print(Poly(m.coeffs, x))
-print("Decrypted message:", decrypted_m.coeffs)
-dm = bits_to_message(decrypted_m.coeffs)
-print(dm)
+# Generate keys
+# h, sk = generate_keypair(N, p, q, d)
+# # print(Poly(h.coeffs, x))
+# print(sk[0].coeffs)
+# # Example message (small polynomial)
+# m = input('Enter your message: ')
+# m = message_to_bits(m)
+# m = Zx(m)
+#
+# # Encrypt and decrypt
+# c = encrypt(m, h, N, q, d)
+#
+# decrypted_m = decrypt(c, sk, N, p, q)
+#
+#
+# # Verify
+# # print(Poly(m.coeffs, x))
+# # print("Decrypted message:", decrypted_m.coeffs)
+# dm = bits_to_message(decrypted_m.coeffs)
+# print(dm)
