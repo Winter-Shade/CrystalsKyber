@@ -17,8 +17,25 @@
                 document.getElementById("key").value = ""; // Clear the key input if hidden
             }
         }
+
+        function openModal_DES() {
+    document.getElementById("infoModal").style.display = "block";
+    document.body.style.overflow = "hidden"; // Disable scrolling
+}
+
+function closeModal() {
+    document.getElementById("infoModal").style.display = "none";
+    document.body.style.overflow = "auto"; // Enable scrolling
+}
     </script>
 </head>
+<!-- Back Button -->
+<div style="display: flex; justify-content: flex-start; padding: 10px;">
+    <a href="javascript:history.back()" style="font-size: 16px; color: #007bff; text-decoration: none; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
+        ← Back
+    </a>
+</div>
+
 <h1 class="step-name">AES Encryption and Decryption
     <button class="circular-button" onclick="openModal_DES()">?</button>
 </h1>
@@ -54,7 +71,7 @@
         <label for="key" class="step-name">Enter Key:</label>
         <input type="text" id="key_input" name="key_input" placeholder="Enter key (in bytes)" class="input" class="container">
     </div>
-    <label for="plaintext" class="step-name">Enter plaintext:</label>     
+    <label for="plaintext" class="step-name">Enter plaintext:</label>
 <textarea id="plaintext" name="plaintext" rows="3" cols="3" placeholder="Enter plaintext here" required class="input"></textarea>
 <button type="submit" class="gumroad">Encrypt</button>
 </form>
