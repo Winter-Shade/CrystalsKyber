@@ -1,43 +1,54 @@
+from flask import Flask, render_template, request
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
-from Crypto.Random import get_random_bytes
 import secrets
-def print_binary(data):
-    return data.hex()
-keylen = int(input("Choose AES type (128, 192, 256): "))
-if keylen not in {128, 192, 256}:
-    print(f"Invalid Key length | {{{keylen}}} is not valid")
-    exit()
-key_bytes = keylen//8
-keychoice = input("Enter 'Y' to choose random key and 'N' to give key as input: ")
-if keychoice == 'N':
-    key = input(f"Enter Key({keylen}-bits/{key_bytes}-bytes) {key_bytes} charecters: ").encode()
-    if len(key) != key_bytes:
-        print("Invalid key! Try Again")
-        exit()
-elif keychoice == 'Y':
-    key = secrets.token_bytes(key_bytes)
-    print(f"Random {keylen}-bits key(in hex): ",key.hex())
-plaintext = input("Enter plaintext: ").encode()
 
-cipher = AES.new(key, AES.MODE_CBC) 
+app = Flask(__name__)
 
-padded_plaintext = pad(plaintext, AES.block_size)
+def aes_encrypt_decrypt(keylen, keychoice, key_input, plaintext):
+    key_bytes = keylen // 8
+    
+    if keychoice == 'N':
+        key = key_input.encode()
+        if len(key) != key_bytes:
+            return "Invalid key length!"
+    elif keychoice == 'Y':
+        key = secrets.token_bytes(key_bytes)
 
-print("Initial Padded Plaintext (in hex):")
-print(print_binary(padded_plaintext))
+    cipher = AES.new(key, AES.MODE_CBC)
+    padded_plaintext = pad(plaintext.encode(), AES.block_size)
+    
+    ciphertext = cipher.encrypt(padded_plaintext)
+    
+    iv = cipher.iv
+    cipher_decrypt = AES.new(key, AES.MODE_CBC, iv)
+    decrypted_data = cipher_decrypt.decrypt(ciphertext)
+    decrypted_data = unpad(decrypted_data, AES.block_size).decode()
 
-ciphertext = cipher.encrypt(padded_plaintext)
-print("\nCiphertext (in hex):")
-print(ciphertext.hex())
+    return {
+        "key_hex": key.hex(),
+        "iv_hex": iv.hex(),
+        "ciphertext_hex": ciphertext.hex(),
+        "decrypted_data": decrypted_data,
+        "decrypted_data_hex": decrypted_data.encode().hex()
+    }
 
-iv = cipher.iv
-cipher_decrypt = AES.new(key, AES.MODE_CBC, iv)
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    result=None
+    if request.method == 'POST':
+        keylen = int(request.form['keylen'])
+        keychoice = request.form['keychoice']
+        key_input = request.form['key_input']
+        plaintext = request.form['plaintext']
 
-decrypted_data = cipher_decrypt.decrypt(ciphertext)
-decrypted_data = unpad(decrypted_data, AES.block_size)
+        result = aes_encrypt_decrypt(keylen, keychoice, key_input, plaintext)
+        if isinstance(result, dict):
+            return render_template('aes.html', result=result)
+        else:
+            return render_template('aes.html', error=result)
 
-print("\nDecrypted Data:")
-print(decrypted_data.decode())
-print("Decrypted Data (in hex):")
-print(print_binary(decrypted_data))
+    return render_template('aes.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

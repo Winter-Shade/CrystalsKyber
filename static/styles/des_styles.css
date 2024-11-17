@@ -21,7 +21,7 @@ body {
   
   .scrollable-box {
     width: 95%;
-    max-height: 150px; /* Adjust height as needed */
+    max-height: 500px; /* Adjust height as needed */
     overflow-y: scroll;
     border: 1px solid #ddd;
     padding: 10px;
@@ -219,7 +219,7 @@ button.gumroad:hover {
   }*/
   
   .scrollable-box {
-    max-height: 150px;
+    max-height: 250px;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;

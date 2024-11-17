@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %} AES Encryption {% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/aes_styles.css') }}">
+    <title>AES Encryption/Decryption</title>
+    <script>
+        function toggleKeyInput() {
+            var keyChoice = document.getElementById("keychoice").value;
+            var keyInput = document.getElementById("keyInput");
+            if (keyChoice === "N") {
+                keyInput.style.display = "block";
+            } else {
+                keyInput.style.display = "none";
+                document.getElementById("key").value = ""; // Clear the key input if hidden
+            }
+        }
+    </script>
+</head>
+<h1 class="step-name">AES Encryption and Decryption
+    <button class="circular-button" onclick="openModal_DES()">?</button>
+</h1>
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>About AES (Advanced Encryption Standard): </h2>
+        <ul>
+            <li><b>Symmetric Key Algorithm</b>: AES uses the same key for both encryption and decryption.</li>
+            <li><b>Key Sizes</b>: Supports 128-bit, 192-bit, and 256-bit key lengths.</li>
+            <li><b>Block Cipher</b>: Operates on 128-bit blocks, with 10, 12, or 14 rounds depending on the key size.</li>
+            <li><b>SPN Structure</b>: Utilizes a Substitution-Permutation Network for strong encryption.</li>
+            <li><b>High Security</b>: Resistant to brute-force attacks, with security increasing with key length.</li>
+            <li><b>Efficiency</b>: Efficient in both hardware and software implementations.</li>
+            <li><b>Global Standard</b>: Approved by NIST and widely used in various industries for data security.</li>
+          </ul>
+    </div>
+</div>
+<form method="POST" class = "card">
+    <label for="keylen" class = "step-name">Choose AES type (128, 192, 256):</label>
+    <select id="keylen" name="keylen" required class="input">
+        <option value="128">AES-128</option>
+        <option value="192">AES-192</option>
+        <option value="256">AES-256</option>
+    </select>
+
+    <label for="keychoice" class = "step-name">Key Choice:</label>
+    <select id="keychoice" name="keychoice" required class="input" onchange="toggleKeyInput()">
+        <option value="Y">Generate Random Key</option>
+        <option value="N">Enter Custom Key</option>
+    </select>
+    <div id="keyInput" style="display: none;">
+        <label for="key" class="step-name">Enter Key:</label>
+        <input type="text" id="key_input" name="key_input" placeholder="Enter key (in bytes)" class="input" class="container">
+    </div>
+    <label for="plaintext" class="step-name">Enter plaintext:</label>     
+<textarea id="plaintext" name="plaintext" rows="3" cols="3" placeholder="Enter plaintext here" required class="input"></textarea>
+<button type="submit" class="gumroad">Encrypt</button>
+</form>
+{% if result %}
+<div class="card" style="background: linear-gradient(to bottom, #ccffcc, #e0ffef); border: 2px solid #000;">
+    <h2 class="step-name" style="font-size: 24px; text-shadow: 1px 1px #666;">Results:</h2>
+    <div class="scrollable-box" style="font-family: 'Courier New', monospace;">
+        <p><strong>Key (Hex):</strong> {{ result.key_hex }}</p>
+        <p><strong>IV (Hex):</strong> {{ result.iv_hex }}</p>
+        <p><strong>Ciphertext (Hex):</strong> {{ result.ciphertext_hex }}</p>
+        <p><strong>Decrypted Data:</strong> {{ result.decrypted_data }}</p>
+        <p><strong>Decrypted Data (Hex):</strong> {{ result.decrypted_data_hex }}</p>
+    </div>
+</div>
+{% elif error %}
+    <h2>Error:</h2>
+    <p>{{ error }}</p>
+{% endif %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% for message in get_flashed_messages(with_categories=true) %}
+    <div class="alert {{ message[0] }}">{{ message[1] }}</div>
+{% endfor %}
+{% endblock %}
