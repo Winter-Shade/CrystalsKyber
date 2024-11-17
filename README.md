@@ -2,7 +2,7 @@ Kyber-PKE Simulation
 
 ## Project Status:
 
-- Implement a simplified version of KyberPKE 
+- Implement KyberPKE (Done) 
 - Frontend (Done)
 - Implement NTRU-Encrypt if possible (Done)
 
