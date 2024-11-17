@@ -3,6 +3,15 @@
 {% block title %} Kyber KEM {% endblock %}
 
 {% block content %}
+<!-- Back Button -->
+<div style="display: flex; justify-content: flex-start; padding: 10px;">
+    <a href="javascript:history.back()" style="font-size: 16px; color: #007bff; text-decoration: none; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
+        ← Back
+    </a>
+</div>
+
+
+
 
 <p class="step-name">
     KYBER-PKE ToolBox
@@ -28,8 +37,8 @@
     <!-- Algorithm Details Section -->
     <div class="algorithm-details">
         <p>
-            (i) Select \( A \in \mathbb{R}_{q}^{k \times k} \), 
-            \( \mathbf{s} \in S_{\eta_1}^k \), 
+            (i) Select \( A \in \mathbb{R}_{q}^{k \times k} \),
+            \( \mathbf{s} \in S_{\eta_1}^k \),
             \( \mathbf{e} \in S_{\eta_2}^k \).
         </p>
         <p>
@@ -41,12 +50,12 @@
     </div>
 
     <button type="button" onclick="generateKeys()" class="gumroad">Generate Keys</button>
-    
-    
-    
+
+
+
     <!-- Matrix Sections Container -->
     <div id="matrixSection" style="display: none;">
-        
+
         <h2>A Matrix (Public Key)</h2>
         <div class="scrollable-box">
             <table class="matrix-table">
@@ -101,8 +110,8 @@
             (i) Obtain Alice's public key: \( (A, \mathbf{t}) \).
         </p>
         <p>
-            (ii) Select \( \mathbf{r} \in S_{\eta_1}^k \), 
-            \( \mathbf{e}_1 \in S_{\eta_2}^k \), 
+            (ii) Select \( \mathbf{r} \in S_{\eta_1}^k \),
+            \( \mathbf{e}_1 \in S_{\eta_2}^k \),
             \( \mathbf{e}_2 \in S_{\eta_2} \).
         </p>
         <p>
@@ -119,7 +128,7 @@
             \]
         </p>
         <p>
-            (iv) Ciphertext: \( \mathbf{c} = (\mathbf{u}, v) \), 
+            (iv) Ciphertext: \( \mathbf{c} = (\mathbf{u}, v) \),
             where \( \mathbf{c} \in \mathbb{R}_q^k \times \mathbb{R}_q \).
         </p>
     </div>
@@ -129,8 +138,8 @@
         <textarea id="binaryMessage" name="binaryMessage" rows="1" cols="50" required></textarea>
         <button type="button" onclick="encryptMessage()" class="gumroad">Encrypt Message</button>
     </div>
-    
-    
+
+
 
     <!-- Matrix Sections Container -->
     <div id="matrixSection2" style="display: none;">
@@ -188,7 +197,7 @@
     <button type="button" onclick="decryptMessage()" class="gumroad">Decrypt Message</button>
     <div id="message_display"></div>
 
-    
+
 </div>
 
 
