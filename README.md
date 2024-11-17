@@ -1,11 +1,10 @@
-Kyber-PKE Simulation (Ongoing)
+Kyber-PKE Simulation
 
 ## Project Status:
 
-- Implement a simplified version of KyberPKE (DONE)
-- Optimizations - Implement Kyber-KEM full scheme (Almost Done)
-- Frontend (Almost Done)
-- (Optional)Implement Dilithium if possible (Working
+- Implement a simplified version of KyberPKE 
+- Frontend (Done)
+- Implement NTRU-Encrypt if possible (Done)
 
 ## Team Members:
 
