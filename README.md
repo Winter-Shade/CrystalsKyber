@@ -14,9 +14,10 @@ Kyber-PKE Simulation
 - Prem Prakash (22bcs090)
 - Shiva Rathore (22bcs116)
 
-Screenshots of Kyber-PKE algorithm: 
+Screenshots:
 
 ![image](https://github.com/user-attachments/assets/97fe2ba4-3de0-4a37-8873-0de94604a799)
+Screenshots of KyberPKE Algorithm
 ![image](https://github.com/user-attachments/assets/b863a4eb-e53f-4c9f-99d6-48acc1a1ee31)
 ![image](https://github.com/user-attachments/assets/5b55f297-04c0-480d-a369-1796c2e60618)
 
