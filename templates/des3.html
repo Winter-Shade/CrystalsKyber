@@ -16,8 +16,27 @@
                 document.getElementById("key").value = ""; // Clear the key input if hidden
             }
         }
+
+
+function openModal_DES() {
+    document.getElementById("infoModal").style.display = "block";
+    document.body.style.overflow = "hidden"; // Disable scrolling
+}
+
+function closeModal() {
+    document.getElementById("infoModal").style.display = "none";
+    document.body.style.overflow = "auto"; // Enable scrolling
+}
     </script>
 </head>
+
+<!-- Back Button -->
+<div style="display: flex; justify-content: flex-start; padding: 10px;">
+    <a href="javascript:history.back()" style="font-size: 16px; color: #007bff; text-decoration: none; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
+        ← Back
+    </a>
+</div>
+
 
 <h1 class="step-name">DES3 Encryption
     <button class="circular-button" onclick="openModal_DES()">?</button>
