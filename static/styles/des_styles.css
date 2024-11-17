@@ -5,7 +5,7 @@ body {
     font-family: 'Chakra Petch', Georgia, "Times New Roman", Times, serif;
     font-size: 20px;
   }
-  
+
   .card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -18,28 +18,28 @@ body {
     border-color: #000;
     border-style: solid;
   }
-  
+
   .scrollable-box {
     width: 95%;
-    max-height: 500px; /* Adjust height as needed */
+    max-height: 150px; /* Adjust height as needed */
     overflow-y: scroll;
     border: 1px solid #ddd;
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 5px;
   }
-  
+
   /* On mouse-over, add a deeper shadow */
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
-  
+
   /* Add some padding inside the card container */
   .container {
     background-color: #a9e5c4;
     width: 0;
   }
-  
+
   input {
     width: 95%;
     color: black;
@@ -49,7 +49,7 @@ body {
     border-radius: 5px;
     margin: 5px 5px 5px 5px;
   }
-  
+
   .matrix-table {
     border-collapse: collapse;
     width: 100%;
@@ -59,7 +59,7 @@ body {
     padding: 8px;
     text-align: center;
   }
-  
+
   .step-name {
     background-color: #b2f2b2;
     margin: 10px 10px 10px 10px;
@@ -74,8 +74,8 @@ body {
     border-style: groove;
     /* color: white; */
   }
-  
-  
+
+
   .step-name:hover {
     box-shadow: 4px 4px 0 #000;
     transform: translate(-0.5px,-0.5px);
@@ -144,33 +144,33 @@ button.gumroad:hover {
     vertical-align: middle;
     white-space: nowrap;
   }
-  
+
   .button-3:focus:not(:focus-visible):not(.focus-visible) {
     box-shadow: none;
     outline: none;
   }
-  
+
   .button-3:hover {
     background-color: #2c974b;
   }
-  
+
   .button-3:focus {
     box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
     outline: none;
   }
-  
+
   .button-3:disabled {
     background-color: #94d3a2;
     border-color: rgba(27, 31, 35, 0.1);
     color: rgba(255, 255, 255, 0.8);
     cursor: default;
   }
-  
+
   .button-3:active {
     background-color: #298e46;
     box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
   } */
-  
+
   .gumroad{
     outline: 0;
     grid-gap: 8px;
@@ -193,7 +193,7 @@ button.gumroad:hover {
     white-space: nowrap;
     background-color: rgb(232, 149, 177);
   }
-  
+
   .gumroad:hover {
       box-shadow: 4px 4px 4px #000;
       transform: translate(-0.5px,-0.5px);
@@ -201,7 +201,7 @@ button.gumroad:hover {
   .gumroad:focus-visible{
       outline-offset: 1px;
   }
-  
+
   .card:hover {
     box-shadow: 4px 4px 0 #000;
     transform: translate(-0.1px,-0.1px);
@@ -209,34 +209,34 @@ button.gumroad:hover {
   .card:focus-visible{
     outline-offset: 1px;
   }
-  
+
   /* .bigwrapper {
     background-image: url('https://images.unsplash.com/photo-1617957848811-9c07f14d7ba3?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-repeat: no-repeat;
     background-position: top center;
     background-attachment: fixed;
-    width: 65%; 
+    width: 65%;
   }*/
-  
+
   .scrollable-box {
-    max-height: 250px;
+    max-height: 150px;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
     margin-top: 10px;
   }
-  
+
   .matrix-table {
     border-collapse: collapse;
     width: 100%;
   }
-  
+
   .matrix-table td {
     padding: 8px;
     border: 1px solid #ccc;
     text-align: center;
   }
-  
+
   .poly-button {
     padding: 4px; /* Optional: Increase padding for better button size */
     font-size: 15px; /* Larger font size for better visibility */
@@ -244,8 +244,8 @@ button.gumroad:hover {
     /* border-radius: 5px; Optional: Adds a slight curve to the button corners */
     line-height: 1.5; /* Adjusts the text's vertical spacing */
   }
-  
-  
+
+
   /* The Modal (background overlay) */
   .modal {
     display: none; /* Hidden by default */
@@ -258,7 +258,7 @@ button.gumroad:hover {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
   }
-  
+
   /* Modal Content Box */
   .modal-content {
     background-color: #fff;
@@ -269,7 +269,7 @@ button.gumroad:hover {
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Close Button */
   .close-button {
     color: #aaa;
@@ -278,13 +278,13 @@ button.gumroad:hover {
     font-weight: bold;
     cursor: pointer;
   }
-  
+
   .close-button:hover,
   .close-button:focus {
     color: black;
     text-decoration: none;
   }
-  
+
   .circular-button {
     background-color: #007bff; /* Blue background */
     color: white; /* White text */
@@ -300,13 +300,13 @@ button.gumroad:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
   }
-  
+
   /* Hover Effects */
   .circular-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
     transform: scale(1.01); /* Slightly enlarge the button */
   }
-  
+
   .algorithm-details {
     background-color: #f9f9f9; /* Light gray background */
     padding: 15px;
@@ -319,12 +319,12 @@ button.gumroad:hover {
     border: 1px solid #ddd; /* Subtle border */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
-  
+
   .algorithm-details p {
     margin: 10px 0;
   }
-  
-  
+
+
   textarea#binaryMessage {
     display: block; /* Forces the textarea to start on a new line */
     width: 95%; /* Adjust width to fit the card's design */
@@ -337,14 +337,13 @@ button.gumroad:hover {
     background-color: #f9f9f9; /* Light background for readability */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
   }
-  
+
   textarea#binaryMessage:focus {
     outline: none; /* Removes the default outline on focus */
     border: 1px solid #007bff; /* Highlighted border on focus */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
   }
-  
+
   button.gumroad {
     margin-top: 15px; /* Adds spacing above the button */
   }
-  
