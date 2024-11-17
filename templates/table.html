@@ -1,54 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Algorithm Comparison Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptanlysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/table_styles.css') }}">
 </head>
 <body>
-    <h1>Algorithm Comparison</h1>
-    <table>
-        <thead>
+    <h1 class="step-name">Cryptanlysis</h1>
+    <table class="card">
+        <thead >
             <tr>
-                <th>Algorithm</th>
-                <th>Type</th>
-                <th>Key Size</th>
-                <th>Ciphertext Size</th>
-                <th>Performance</th>
-                <th>Security Basis</th>
-                <th>Quantum Resistance</th>
-                <th>Ciphertext Expansion</th>
-                <th>Bulk Data Suitability</th>
-                <th>Typical Use Case</th>
+                <th>Attribute</th>
+                {% for item in data %}
+                <th>{{ item['Algorithm'] }}</th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>
-            {% for item in data %}
             <tr>
-                <td>{{ item['Algorithm'] }}</td>
+                <td>Type</td>
+                {% for item in data %}
                 <td>{{ item['Type'] }}</td>
-                <td>{{ item['Key Size'] }}</td>
-                <td>{{ item['Ciphertext Size'] }}</td>
-                <td>{{ item['Performance'] }}</td>
-                <td>{{ item['Security Basis'] }}</td>
-                <td>{{ item['Quantum Resistance'] }}</td>
-                <td>{{ item['Ciphertext Expansion'] }}</td>
-                <td>{{ item['Bulk Data Suitability'] }}</td>
-                <td>{{ item['Typical Use Case'] }}</td>
+                {% endfor %}
             </tr>
-            {% endfor %}
+            <tr>
+                <td>Key Size</td>
+                {% for item in data %}
+                <td>{{ item['Key Size'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Ciphertext Size</td>
+                {% for item in data %}
+                <td>{{ item['Ciphertext Size'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Performance</td>
+                {% for item in data %}
+                <td>{{ item['Performance'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Security Basis</td>
+                {% for item in data %}
+                <td>{{ item['Security Basis'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Ciphertext Expansion</td>
+                {% for item in data %}
+                <td>{{ item['Ciphertext Expansion'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Bulk Data Suitability</td>
+                {% for item in data %}
+                <td>{{ item['Bulk Data Suitability'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Typical Use Case</td>
+                {% for item in data %}
+                <td>{{ item['Typical Use Case'] }}</td>
+                {% endfor %}
+            </tr>
         </tbody>
     </table>
 </body>
