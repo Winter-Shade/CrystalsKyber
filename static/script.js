@@ -91,11 +91,3 @@ function closeModal() {
     document.getElementById("infoModal").style.display = "none";
     document.body.style.overflow = "auto"; // Enable scrolling
 }
-function openModal_DES(){
-    document.getElementById("infoModal").style.display = "block";
-    document.body.style.overflow = "hidden";
-}
-function openModal_AES(){
-    document.getElementById("infoModal").style.display = "block";
-    document.body.style.overflow = "hidden";
-}
