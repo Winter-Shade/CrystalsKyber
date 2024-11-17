@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %} DES3 Encryption {% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/des_styles.css') }}">
+    <script>
+        function toggleKeyInput() {
+            var keyChoice = document.getElementById("keychoice").value;
+            var keyInput = document.getElementById("keyInput");
+            if (keyChoice === "N") {
+                keyInput.style.display = "block";
+            } else {
+                keyInput.style.display = "none";
+                document.getElementById("key").value = ""; // Clear the key input if hidden
+            }
+        }
+    </script>
+</head>
+
+<h1 class="step-name">DES3 Encryption
+    <button class="circular-button" onclick="openModal_DES()">?</button>
+</h1>
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>About DES3 (Triple DES): </h2>
+        <ul>
+            <li>DES3 is a symmetric key algorithm that encrypts data using the DES cipher three times for each data block.</li>
+            <li>Triple DES (3DES) operates in two variants: 2-round (Double DES) and 3-round, where the encryption process is applied either twice or thrice, respectively, using either two or three distinct keys.</li>
+            <li>Both 2-round and 3-round DES variants utilize the Feistel network, dividing data and applying multiple encryption rounds.</li>
+            <li><b>2-Round (Double DES):</b> Uses two applications of DES with two keys, providing an effective key length of 112 bits.</li>
+            <li><b>3-Round (Triple DES):</b> Uses three applications of DES with either two or three keys, providing key lengths of 112 or 168 bits.</li>
+        </ul>
+    </div>
+</div>
+<form method="POST" class="card" action="{{ url_for('des3') }}">
+    <label for="rounds" class="step-name">Choose DES3 Rounds:</label>
+    <select id="rounds" name="rounds" required class="input">
+        <option value="2">2-Round DES3</option>
+        <option value="3">3-Round DES3</option>
+    </select>
+
+    <label for="keychoice" class="step-name">Key Choice:</label>
+    <select id="keychoice" name="keychoice" required class="input" onchange="toggleKeyInput()">
+        <option value="Y">Generate Random Key</option>
+        <option value="N">Enter Custom Key</option>
+    </select>
+
+    <div id="keyInput" style="display: none;">
+        <label for="key" class="step-name">Enter Key:</label>
+        <input type="text" id="key" name="key" placeholder="Enter key (in bytes)" class="input" class="container">
+    </div>
+
+    <label for="plaintext" class="step-name">Plaintext to Encrypt:</label>
+    <textarea id="plaintext" name="plaintext" rows="3" cols="3" placeholder="Enter plaintext here" required class="input"></textarea>
+
+    <button type="submit" class="gumroad">Encrypt</button>
+</form>
+
+<!-- Display Results -->
+{% if result %}
+<div class="card" style="background: linear-gradient(to bottom, #ccffcc, #e0ffef); border: 2px solid #000;">
+    <h2 class="step-name" style="font-size: 24px; text-shadow: 1px 1px #666;">Results</h2>
+    <div class="scrollable-box" style="font-family: 'Courier New', monospace;">
+        <p><strong>Key (hex):</strong> {{ result.key }}</p>
+        <p><strong>IV (hex):</strong> {{ result.iv }}</p>
+        <p><strong>Ciphertext (hex):</strong> {{ result.ciphertext }}</p>
+        <p><strong>Decrypted Text:</strong> {{ result.decrypted_text }}</p>
+    </div>
+</div>
+{% endif %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% for message in get_flashed_messages(with_categories=true) %}
+<div class="alert {{ message[0] }}">{{ message[1] }}</div>
+{% endfor %}
+
+{% endblock %}
