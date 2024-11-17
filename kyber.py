@@ -2,7 +2,7 @@
 import numpy as np
 from sympy import symbols, Poly, latex
 import math
-import random
+import random 
 
 # Define the polynomial variable
 x = symbols('x')
