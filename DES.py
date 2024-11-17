@@ -6,9 +6,11 @@ from Crypto.Random import get_random_bytes
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-@app.route('/')
+
+@app.route('/DES')
 def index():
     return render_template('des3.html')
+
 
 @app.route('/des3', methods=['GET', 'POST'])
 def des3():
@@ -67,9 +69,10 @@ def des3():
 
         # Return with the result if POST is successful
         return render_template('des3.html', result=result)
-    
+
     # Ensure a response for GET requests
     return render_template('des3.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
