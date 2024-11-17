@@ -1,8 +1,19 @@
-from flask import Flask, jsonify, request, render_template
+# from flask import Flask, jsonify, request, render_template
 import kyber
-from sympy import latex, Poly
+import ntruEncrypt
+# import DES
+# import AES
+from sympy import latex, Poly, symbols
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from Crypto.Cipher import DES3
+from Crypto.Util.Padding import pad, unpad
+from Crypto.Random import get_random_bytes
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+import secrets
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'
 
 class Crystals:
     def __init__(self):
@@ -29,7 +40,13 @@ crystals = Crystals()
 
 @app.route('/')
 def index():
+    return render_template('main.html')
+
+@app.route('/kyber')
+def indexKyber():
     return render_template('index.html')
+
+
 
 @app.route('/generate_keys', methods=['POST'])
 def generate_keys():
@@ -115,6 +132,198 @@ def create_matrix_html(matrix, name):
 
 def create_vector_html(vector, name):
     return '<br>'.join([f"{name}[{i}]: \\({latex(vector[i, 0].as_expr())}\\)" for i in range(3)])
+
+@app.route('/ntru')
+def ntruIndex():
+    return render_template('ntru.html')
+
+class NTRU:
+    def __init__(self):
+        self.x = symbols('x')
+        self.N = 256
+        self.p = 3
+        self.q = 2048
+        self.d = 3
+        self.h, self.sk = ntruEncrypt.generate_keypair(self.N, self.p, self.q, self.d)
+        self.publicKey, self.privateKey = Poly(self.h.coeffs, self.x), (Poly(self.sk[0].coeffs, self.x), Poly(self.sk[1].coeffs, self.x))
+
+
+    def generateKeys(self):
+        h, sk = ntruEncrypt.generate_keypair(self.N, self.p, self.q, self.d)
+        self.publicKey, self.privateKey = Poly(self.h.coeffs, self.x), (Poly(self.sk[0].coeffs, self.x), Poly(self.sk[1].coeffs, self.x))
+
+        return (self.publicKey, self.privateKey)
+
+    def returnKeys(self):
+        return (self.publicKey, self.privateKey)
+
+    def generateCiphertext(self, message):
+        message = ntruEncrypt.message_to_bits(message)
+        message = ntruEncrypt.Zx(message)
+        self.cptxt = ntruEncrypt.encrypt(message, self.h, self.N, self.q, self.d)
+        self.ciphertext = Poly(ntruEncrypt.encrypt(message, self.h, self.N, self.q, self.d).coeffs, self.x)
+        return self.ciphertext
+
+    def decryptMessage(self):
+        self.decrypted_message = ntruEncrypt.decrypt(self.cptxt, self.sk, self.N, self.p, self.q)
+        self.decrypted_message = ntruEncrypt.bits_to_message(self.decrypted_message.coeffs)
+        return self.decrypted_message
+
+ntru = NTRU()
+
+import json
+
+x = symbols('x')
+@app.route('/generate_ntru_keys', methods=['POST'])
+def generate_ntru_keys():
+    publicKey, privateKey = ntru.generateKeys()
+
+    return jsonify({
+        'public_key': latex(publicKey.as_expr()),  # Convert Poly object to string
+        'private_key_0': latex(privateKey[0].as_expr()),
+        'private_key_1': latex(privateKey[1].as_expr())
+    })
+
+@app.route('/generate_ntru_ciphertext', methods=['POST'])
+def generate_ntru_ciphertext():
+    data = request.get_json()
+    message = data.get('textMessage', '')
+
+    # Generate ciphertext as a polynomial
+    ciphertext = ntru.generateCiphertext(message)
+
+    # Convert ciphertext polynomial to a string compatible with LaTeX
+    ciphertext_latex = latex(ciphertext.as_expr())  # Convert Python's power operator to LaTeX format
+
+    return jsonify({"ciphertext": ciphertext_latex})
+
+
+@app.route('/decrypt_ntru_message', methods=['POST'])
+def decrypt_ntru_message():
+    decrypted_message = ntru.decryptMessage()
+
+    message_html = f"{decrypted_message}"
+    return jsonify({"decryptedMessage": message_html})
+
+
+@app.route('/DES')
+def indexDES():
+    return render_template('des3.html')
+
+
+@app.route('/des3', methods=['GET', 'POST'])
+def des3():
+    result = None
+    if request.method == 'POST':
+        try:
+            # Get form data
+            rounds = int(request.form['rounds'])
+            key_choice = request.form['keychoice']
+            plaintext = request.form['plaintext']
+
+            # Validate rounds
+            if rounds not in {2, 3}:
+                flash("Invalid choice! Only 2 or 3 rounds are allowed.", "error")
+                return redirect(url_for('des3'))
+
+            # Determine the required key length for DES3 (2 rounds = 16 bytes, 3 rounds = 24 bytes)
+            keylen = 16 if rounds == 2 else 24
+
+            # Handle key input or generation
+            if key_choice == 'N':
+                key = request.form['key'].encode()
+                if len(key) != keylen:
+                    flash(f"Invalid key length! Key must be {keylen} bytes. for {rounds}-round DES", "error")
+                    return redirect(url_for('des3'))
+            else:
+                key = get_random_bytes(keylen)
+                flash(f"Generated random key (hex): {key.hex()}", "info")
+
+            # Generate IV
+            iv = get_random_bytes(DES3.block_size)
+            flash(f"Generated IV (hex): {iv.hex()}", "info")
+
+            # Encrypt plaintext
+            cipher = DES3.new(key, DES3.MODE_CBC, iv)
+            padded_plaintext = pad(plaintext.encode(), DES3.block_size)
+            ciphertext = cipher.encrypt(padded_plaintext)
+
+            # Decrypt ciphertext to verify encryption
+            decipher = DES3.new(key, DES3.MODE_CBC, iv)
+            decrypted_padded_text = decipher.decrypt(ciphertext)
+            decrypted_text = unpad(decrypted_padded_text, DES3.block_size)
+
+            result = {
+                "ciphertext": ciphertext.hex(),
+                "decrypted_text": decrypted_text.decode('utf-8'),
+                "key": key.hex(),
+                "iv": iv.hex(),
+            }
+        except ValueError as ve:
+            flash(f"Value error: {str(ve)}", "error")
+            return redirect(url_for('des3'))
+        except Exception as e:
+            flash(f"An unexpected error occurred: {str(e)}", "error")
+            return redirect(url_for('des3'))
+
+        # Return with the result if POST is successful
+        return render_template('des3.html', result=result)
+
+    # Ensure a response for GET requests
+    return render_template('des3.html')
+
+
+
+def aes_encrypt_decrypt(keylen, keychoice, key_input, plaintext):
+    key_bytes = keylen // 8
+
+    if keychoice == 'N':
+        key = key_input.encode()
+        if len(key) != key_bytes:
+            return "Invalid key length!"
+    elif keychoice == 'Y':
+        key = secrets.token_bytes(key_bytes)
+
+    cipher = AES.new(key, AES.MODE_CBC)
+    padded_plaintext = pad(plaintext.encode(), AES.block_size)
+
+    ciphertext = cipher.encrypt(padded_plaintext)
+
+    iv = cipher.iv
+    cipher_decrypt = AES.new(key, AES.MODE_CBC, iv)
+    decrypted_data = cipher_decrypt.decrypt(ciphertext)
+    decrypted_data = unpad(decrypted_data, AES.block_size).decode()
+
+    return {
+        "key_hex": key.hex(),
+        "iv_hex": iv.hex(),
+        "ciphertext_hex": ciphertext.hex(),
+        "decrypted_data": decrypted_data,
+        "decrypted_data_hex": decrypted_data.encode().hex()
+    }
+
+
+@app.route('/AES', methods=['GET', 'POST'])
+def indexAES():
+    result = None
+    if request.method == 'POST':
+        keylen = int(request.form['keylen'])
+        keychoice = request.form['keychoice']
+        key_input = request.form['key_input']
+        plaintext = request.form['plaintext']
+
+        result = aes_encrypt_decrypt(keylen, keychoice, key_input, plaintext)
+        if isinstance(result, dict):
+            return render_template('aes.html', result=result)
+        else:
+            return render_template('aes.html', error=result)
+
+    return render_template('aes.html')
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
