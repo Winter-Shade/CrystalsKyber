@@ -37,7 +37,7 @@ This project explores and simulates both **post-quantum** and **classical encryp
 - **Frontend**: HTML, CSS, JavaScript 
 - **Backend**: Flask
 - **Programming Language**: Python
-- **Deployment**: Railway
+- **Deployment**: Railway (https://bridgingpqc-production.up.railway.app/) (Note: Since we are using a free server on Railway, the deployed site might take several minutes to load and work smoothly) 
 
 
 
