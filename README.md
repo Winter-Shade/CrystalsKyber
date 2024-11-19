@@ -1,18 +1,46 @@
-## Bridging Cryptography: Simulating Post Quantum And Classical Algorithms 
+# **Bridging Cryptography: Simulating Post-Quantum and Classical Algorithms**
 
-## Project Status:
+This project explores and simulates both **post-quantum** and **classical encryption algorithms**, highlighting the importance of cryptography in the face of evolving technological challenges, such as quantum computing. The implementation provides an intuitive interface for users to learn, experiment, and compare encryption techniques.
 
-- Implement KyberPKE (Done) 
-- Frontend (Done)
-- Implement NTRU-Encrypt if possible (Done)
-- Implement DES and AES (Done)
+---
 
+## **Project Status**
+| Task                            | Status |
+|---------------------------------|--------|
+| **Implement KyberPKE**          | ✅ Done |
+| **Frontend**                    | ✅ Done |
+| **Implement NTRU-Encrypt**      | ✅ Done |
+| **Implement DES and AES**       | ✅ Done |
+
+---
 ## Team Members:
 
 - Srijan Shukla (22bcs124)
 - Ojasv Sakhi (22bcs077)
 - Prem Prakash (22bcs090)
 - Shiva Rathore (22bcs116)
+---
+
+## **Features**
+- **Post-Quantum Algorithms**:
+  - **KyberPKE**: A public key encryption system resistant to quantum attacks.
+  - **NTRU-Encrypt**: Another post-quantum algorithm implemented for additional exploration.
+
+- **Classical Algorithms**:
+  - **DES** (Data Encryption Standard): A widely-used symmetric key algorithm.
+  - **AES** (Advanced Encryption Standard): A more secure symmetric encryption method.
+
+
+
+---
+
+## **Technology Stack**
+- **Frontend**: HTML, CSS, JavaScript 
+- **Backend**: Flask
+- **Programming Language**: Python
+- **Deployment**: Railway
+
+
 
 Screenshots:
 
