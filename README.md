@@ -21,14 +21,13 @@ This project explores and simulates both **post-quantum** and **classical encryp
 - Shiva Rathore (22bcs116)
 ---
 
-## **Features**
 - **Post-Quantum Algorithms**:
-  - **KyberPKE**: A public key encryption system resistant to quantum attacks.
-  - **NTRU-Encrypt**: Another post-quantum algorithm implemented for additional exploration.
+  - **KyberPKE**: Implemented using SymPy and NumPy library
+  - **NTRU-Encrypt**: Implemented using SymPy and Numpy Library
 
 - **Classical Algorithms**:
-  - **DES** (Data Encryption Standard): A widely-used symmetric key algorithm.
-  - **AES** (Advanced Encryption Standard): A more secure symmetric encryption method.
+  - **DES3** (Data Encryption Standard): Implemented using Cryptography Library
+  - **AES** (Advanced Encryption Standard): Implemented using Cryptography Library
 
 
 
