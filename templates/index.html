@@ -3,15 +3,13 @@
 {% block title %} Kyber KEM {% endblock %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/miscelleneous.css')}}">
+</head>
 <!-- Back Button -->
 <div style="display: flex; justify-content: flex-start; padding: 10px;">
-    <a href="javascript:history.back()" style="font-size: 16px; color: #007bff; text-decoration: none; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
-        ← Back
-    </a>
+    <a href="javascript:history.back()" class = "back_button" >← Back</a>
 </div>
-
-
-
 
 <p class="step-name">
     KYBER-PKE ToolBox

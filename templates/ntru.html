@@ -1,19 +1,16 @@
-{% extends "layout.html" %}
-
-{% block title %} NTRU Encryption Tool {% endblock %}
-
-{% block content %}
+{% extends "layout.html" %} {% block title %} NTRU Encryption Tool {% endblock
+%} {% block content %}
 <style>
-.scrollable-box {
+  .scrollable-box {
     max-height: 200px; /* Adjust the height as needed */
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
     background-color: #f9f9f9;
     font-family: monospace; /* Optional: for better readability of polynomials */
-}
+  }
 
-.card {
+  .card {
     margin: 20px 0;
     font-size: 16px; /* Base font size for the card */
     padding: 20px; /* Add some padding inside the card for better spacing */
@@ -21,9 +18,9 @@
     border-radius: 4px;
     width: 100%; /* Ensure the card is not too wide */
     box-sizing: border-box;
-}
+  }
 
-textarea {
+  textarea {
     display: block;
     width: 100%;
     max-width: 100%; /* Ensures it doesn't overflow the card */
@@ -34,151 +31,149 @@ textarea {
     border-radius: 4px;
     resize: none;
     box-sizing: border-box; /* Include padding and border in width */
-}
+  }
 
-
-
-label {
+  label {
     font-size: 18px; /* Larger font size for the label */
     margin-bottom: 5px;
     display: block;
-}
-
+  }
 </style>
-
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/miscelleneous.css') }}">
+</head>
 <!-- Back Button -->
-<div style="display: flex; justify-content: flex-start; padding: 10px;">
-    <a href="javascript:history.back()" style="font-size: 16px; color: #007bff; text-decoration: none; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
-        ← Back
-    </a>
+<div style="display: flex; justify-content: flex-start; padding: 10px">
+  <a href="javascript:history.back()" class="back_button"> ← Back </a>
 </div>
 
 <p class="step-name">
-    NTRU Encryption Tool
-    <button class="circular-button" onclick="openModal()">?</button>
+  NTRU Encryption Tool
+  <button class="circular-button" onclick="openModal()">?</button>
 </p>
 
 <div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeModal()">&times;</span>
-        <h2>About NTRU</h2>
-        <ul>
-            <li>NTRU is a lattice-based public key encryption scheme.</li>
-            <li>It is designed to be secure against quantum computers.</li>
-            <li>NTRU key generation involves selecting polynomials with small coefficients.</li>
-            <li>The encryption and decryption process involves polynomial operations over finite fields.</li>
-        </ul>
-    </div>
+  <div class="modal-content">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <h2>About NTRU</h2>
+    <ul>
+      <li>NTRU is a lattice-based public key encryption scheme.</li>
+      <li>It is designed to be secure against quantum computers.</li>
+      <li>
+        NTRU key generation involves selecting polynomials with small
+        coefficients.
+      </li>
+      <li>
+        The encryption and decryption process involves polynomial operations
+        over finite fields.
+      </li>
+    </ul>
+  </div>
 </div>
 
 <!-- Key Generation Section -->
 <div class="card">
-    <p class="step-name">01. NTRU Key Generation by Alice</p>
+  <p class="step-name">01. NTRU Key Generation by Alice</p>
 
-    <div class="algorithm-details">
-        <p>
-            (i) Select \( f \in S_d^k \) and \( g \in S_d^k \) where \( S_d^k \) is a small coefficient set.
-        </p>
-        <p>
-            (ii) Compute \( h = f^{-1} * g \mod q \)
-        </p>
-        <p>
-            (iii) Alice's Public Key: \( h \), Alice's Private Key: \( f, f^{-1} \).
-        </p>
-    </div>
+  <div class="algorithm-details">
+    <p>
+      (i) Select \( f \in S_d^k \) and \( g \in S_d^k \) where \( S_d^k \) is a
+      small coefficient set.
+    </p>
+    <p>(ii) Compute \( h = f^{-1} * g \mod q \)</p>
+    <p>
+      (iii) Alice's Public Key: \( h \), Alice's Private Key: \( f, f^{-1} \).
+    </p>
+  </div>
 
-    <button type="button" onclick="generateKeys()" class="gumroad">Generate Keys</button>
+  <button type="button" onclick="generateKeys()" class="gumroad">
+    Generate Keys
+  </button>
 
-    <div id="public-key-ntru" class="scrollable-box" style="display:none; margin-top: 10px;"></div>
-    <div id="private-key-ntru" class="scrollable-box" style="display:none; margin-top: 10px;"></div>
+  <div
+    id="public-key-ntru"
+    class="scrollable-box"
+    style="display: none; margin-top: 10px"
+  ></div>
+  <div
+    id="private-key-ntru"
+    class="scrollable-box"
+    style="display: none; margin-top: 10px"
+  ></div>
 </div>
-
-
 
 <div class="card">
-    <p class="step-name">02. Encryption by Bob</p>
+  <p class="step-name">02. Encryption by Bob</p>
 
-    <div class="algorithm-details">
-        <p>
-            Bob selects a binary message \( m \in \{0, 1\}^n \).
-        </p>
-        <p>
-            (i) Obtain Alice's Public Key \( h \).
-        </p>
-        <p>
-            (ii) Select a random polynomial \( r \in S_d^k \).
-        </p>
-        <p>
-            (iii) Compute ciphertext \( c \):
-        </p>
-        <p>
-            \[
-            c = h * r + m \mod q
-            \]
-        </p>
-    </div>
+  <div class="algorithm-details">
+    <p>Bob selects a binary message \( m \in \{0, 1\}^n \).</p>
+    <p>(i) Obtain Alice's Public Key \( h \).</p>
+    <p>(ii) Select a random polynomial \( r \in S_d^k \).</p>
+    <p>(iii) Compute ciphertext \( c \):</p>
+    <p>\[ c = h * r + m \mod q \]</p>
+  </div>
 
-    <div class="card">
+  <div class="card">
     <label for="textMessage">Enter message to encrypt:</label>
-    <textarea id="textMessage" name="textMessage" rows="1" cols="50" required></textarea>
-    <button type="button" onclick="encryptMessage()" class="gumroad">Encrypt Message</button>
-    </div>
+    <textarea
+      id="textMessage"
+      name="textMessage"
+      rows="1"
+      cols="50"
+      required
+    ></textarea>
+    <button type="button" onclick="encryptMessage()" class="gumroad">
+      Encrypt Message
+    </button>
+  </div>
 
-
-    <!-- Scrollable box for the ciphertext display -->
-    <div id="ciphertext-display" class="scrollable-box" style="display:none; margin-top: 10px;">
-    </div>
+  <!-- Scrollable box for the ciphertext display -->
+  <div
+    id="ciphertext-display"
+    class="scrollable-box"
+    style="display: none; margin-top: 10px"
+  ></div>
 </div>
-
 
 <!-- Decryption Section -->
 <div class="card">
-    <p class="step-name">03. Decryption by Alice</p>
+  <p class="step-name">03. Decryption by Alice</p>
 
-    <div class="algorithm-details">
-        <p>
-            Alice uses the private key \( f \) to decrypt the ciphertext \( c \).
-        </p>
-        <p>
-            (i) Compute:
-        </p>
-        <p>
-            \[
-            m = c - f * u \mod q
-            \]
-        </p>
-        <p>
-            (ii) Alice obtains the original message.
-        </p>
-    </div>
+  <div class="algorithm-details">
+    <p>Alice uses the private key \( f \) to decrypt the ciphertext \( c \).</p>
+    <p>(i) Compute:</p>
+    <p>\[ m = c - f * u \mod q \]</p>
+    <p>(ii) Alice obtains the original message.</p>
+  </div>
 
-    <button type="button" onclick="decryptMessage()" class="gumroad">Decrypt Message</button>
+  <button type="button" onclick="decryptMessage()" class="gumroad">
+    Decrypt Message
+  </button>
 
-    <div id="decryptedMessage" style="display:none; margin-top: 10px;">
-        <h2>Decrypted Message:</h2>
-        <p id="decryptedMessageText"></p>
-    </div>
+  <div id="decryptedMessage" style="display: none; margin-top: 10px">
+    <h2>Decrypted Message:</h2>
+    <p id="decryptedMessageText"></p>
+  </div>
 </div>
 
-
 <script>
-function generateKeys() {
-    fetch('/generate_ntru_keys', {
-        method: 'POST',
+  function generateKeys() {
+    fetch("/generate_ntru_keys", {
+      method: "POST",
     })
-    .then(response => {
+      .then((response) => {
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
-    })
-    .then(data => {
+      })
+      .then((data) => {
         // Display the keys in the appropriate divs
-        const publicKeyDiv = document.getElementById('public-key-ntru');
-        const privateKeyDiv = document.getElementById('private-key-ntru');
+        const publicKeyDiv = document.getElementById("public-key-ntru");
+        const privateKeyDiv = document.getElementById("private-key-ntru");
 
-        publicKeyDiv.style.display = 'block';
-        privateKeyDiv.style.display = 'block';
+        publicKeyDiv.style.display = "block";
+        privateKeyDiv.style.display = "block";
 
         publicKeyDiv.innerHTML = `<p><strong>Public Key:</strong> \\(${data.public_key}\\)</p>`;
         privateKeyDiv.innerHTML = `
@@ -188,99 +183,98 @@ function generateKeys() {
 
         // Re-typeset MathJax to render new math
         if (window.MathJax) {
-            MathJax.typesetPromise([publicKeyDiv, privateKeyDiv]);
+          MathJax.typesetPromise([publicKeyDiv, privateKeyDiv]);
         }
-    })
-    .catch(error => {
-        console.error('Error generating keys:', error);
-        alert('An error occurred while generating keys. Please try again.');
-    });
+      })
+      .catch((error) => {
+        console.error("Error generating keys:", error);
+        alert("An error occurred while generating keys. Please try again.");
+      });
 
-    console.log('Generating keys...');
-}
+    console.log("Generating keys...");
+  }
 
-
-function encryptMessage() {
-    const message = document.getElementById('textMessage').value;
+  function encryptMessage() {
+    const message = document.getElementById("textMessage").value;
 
     // Validate input
     if (!message) {
-        alert("Please enter a message to encrypt.");
-        return;
+      alert("Please enter a message to encrypt.");
+      return;
     }
 
-    fetch('/generate_ntru_ciphertext', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ textMessage: message }),
+    fetch("/generate_ntru_ciphertext", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ textMessage: message }),
     })
-    .then(response => {
+      .then((response) => {
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
-    })
-    .then(data => {
-        const ciphertextDiv = document.getElementById('ciphertext-display');
-        ciphertextDiv.style.display = 'block';
+      })
+      .then((data) => {
+        const ciphertextDiv = document.getElementById("ciphertext-display");
+        ciphertextDiv.style.display = "block";
         ciphertextDiv.innerHTML = `<p><strong>Ciphertext:</strong> \\(${data.ciphertext}\\)</p>`;
 
         // Re-typeset MathJax to render the new LaTeX content
         if (window.MathJax) {
-            MathJax.typesetPromise([ciphertextDiv]);
+          MathJax.typesetPromise([ciphertextDiv]);
         }
+      })
+      .catch((error) => {
+        console.error("Error encrypting message:", error);
+        alert("An error occurred during encryption. Please try again.");
+      });
+
+    console.log("Encrypting message...");
+  }
+
+  function decryptMessage() {
+    fetch("/decrypt_ntru_message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .catch(error => {
-        console.error('Error encrypting message:', error);
-        alert('An error occurred during encryption. Please try again.');
-    });
-
-    console.log('Encrypting message...');
-}
-
-
-
-function decryptMessage() {
-    fetch('/decrypt_ntru_message', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(response => {
+      .then((response) => {
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
-    })
-    .then(data => {
-        const decryptedMessageDiv = document.getElementById('decryptedMessage');
-        const decryptedMessageText = document.getElementById('decryptedMessageText');
+      })
+      .then((data) => {
+        const decryptedMessageDiv = document.getElementById("decryptedMessage");
+        const decryptedMessageText = document.getElementById(
+          "decryptedMessageText"
+        );
 
         if (data.decryptedMessage) {
-            decryptedMessageText.textContent = data.decryptedMessage;
-            decryptedMessageDiv.style.display = 'block';
+          decryptedMessageText.textContent = data.decryptedMessage;
+          decryptedMessageDiv.style.display = "block";
         } else {
-            alert(data.error || "Decryption failed.");
+          alert(data.error || "Decryption failed.");
         }
-    })
-    .catch(error => {
-        console.error('Error decrypting message:', error);
-        alert('An error occurred during decryption. Please try again.');
-    });
-}
+      })
+      .catch((error) => {
+        console.error("Error decrypting message:", error);
+        alert("An error occurred during decryption. Please try again.");
+      });
+  }
 
-function openModal() {
+  function openModal() {
     document.getElementById("infoModal").style.display = "block";
     document.body.style.overflow = "hidden"; // Disable scrolling
-}
+  }
 
-function closeModal() {
+  function closeModal() {
     document.getElementById("infoModal").style.display = "none";
     document.body.style.overflow = "auto"; // Enable scrolling
-}
+  }
 </script>
 
 {% endblock %}

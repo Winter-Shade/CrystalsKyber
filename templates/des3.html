@@ -5,6 +5,7 @@
 {% block content %}
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/des_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/miscelleneous.css')}}">
     <script>
         function toggleKeyInput() {
             var keyChoice = document.getElementById("keychoice").value;
@@ -32,11 +33,8 @@ function closeModal() {
 
 <!-- Back Button -->
 <div style="display: flex; justify-content: flex-start; padding: 10px;">
-    <a href="javascript:history.back()" style="font-size: 16px; color: #007bff; text-decoration: none; padding: 10px; border: 1px solid #007bff; border-radius: 5px;">
-        ← Back
-    </a>
+    <a href="javascript:history.back()" class = "back_button">← Back</a>
 </div>
-
 
 <h1 class="step-name">DES3 Encryption
     <button class="circular-button" onclick="openModal_DES()">?</button>
