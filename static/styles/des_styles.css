@@ -1,10 +1,19 @@
 body {
     background-color: #90eeee;
-    padding: 30 px;
-    margin: 30px 300px 30px 300px;
+    /* padding: 30 px; */
+    /* margin: 30px 300px 30px 300px; */
     font-family: 'Chakra Petch', Georgia, "Times New Roman", Times, serif;
     font-size: 20px;
   }
+
+  .Jinja-body{
+    margin: 30px 300px 30px 300px;
+    padding: 30px;
+  }
+
+  footer{
+    display: none;
+}
 
   .card {
     /* Add shadows to create the "card" effect */

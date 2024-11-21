@@ -1,6 +1,7 @@
 # from flask import Flask, jsonify, request, render_template
 import kyber
 import ntruEncrypt
+import os
 # import DES
 # import AES
 from sympy import latex, Poly, symbols
@@ -333,6 +334,7 @@ def table():
         "Ciphertext Expansion": "High",
         "Bulk Data Suitability": "No (Inefficient)",
         "Typical Use Case": "Key exchange, Signatures",
+        "Route": "/ntru"
     },
     {
         "Algorithm": "Kyber",
@@ -345,6 +347,7 @@ def table():
         "Ciphertext Expansion": "Moderate",
         "Bulk Data Suitability": "No (Inefficient)",
         "Typical Use Case": "Key exchange, Encryption",
+        "Route": "/kyber",
     },
     {
         "Algorithm": "AES",
@@ -357,6 +360,7 @@ def table():
         "Ciphertext Expansion": "None",
         "Bulk Data Suitability": "Yes",
         "Typical Use Case": "Encrypting large data",
+        "Route": "/AES",
     },
     {
         "Algorithm": "DES",
@@ -369,6 +373,7 @@ def table():
         "Ciphertext Expansion": "None",
         "Bulk Data Suitability": "No (Weak and Outdated)",
         "Typical Use Case": "Deprecated",
+        "Route": "/DES",
     },
     ]
     return render_template("table.html", data=data)

@@ -1,9 +1,23 @@
 body {
   background-color: #90eeee;
-  padding: 30 px;
-  margin: 30px 300px 30px 300px;
+  /* padding: 30px; */
+  margin: 0;
   font-family: 'Chakra Petch', Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
+}
+
+.Jinja-body{
+  margin: 30px 200px 30px 200px;
+  padding: 30px;
+}
+
+footer {
+  width: 100%; 
+  background-color: #333; 
+  color: white; 
+  padding: 20px; 
+  text-align: center; 
+  margin-top: 20px;
 }
 
 .card {

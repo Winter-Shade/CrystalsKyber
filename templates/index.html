@@ -200,7 +200,11 @@
 
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
-
+<style> 
+    footer{
+        display: none;
+    }
+</style>
 {% if error %}
     <div class="error">{{ error }}</div>
 {% endif %}

@@ -33,12 +33,58 @@
 </head>
 <body class="bigwrapper">
 
+<div class="Jinja-body">
     {% block content %}{% endblock %}
+</div>
+    
     <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+
+    <!-- Footer Section -->
+    <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+        <h3 style="margin-bottom: 20px;">Made by:</h3> <!-- Heading added -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
+            <div style="text-align: center;">
+                <a href="https://www.linkedin.com/in/to-srijan/" target="_blank" style="color: inherit; text-decoration: none;">
+                    <img src="/static/images/image2.png" alt="Contributor 1" 
+                         style="border-radius: 50%; width: 80px; height: 80px;">
+                    <p>Srijan Shukla (22bcs124)</p>
+                </a>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://www.linkedin.com/in/ojasv-sakhi-982985257/" target="_blank" style="color: inherit; text-decoration: none;">
+                    <img src="/static/images/image3.png" alt="Contributor 2" 
+                         style="border-radius: 50%; width: 80px; height: 80px;">
+                    <p>Ojasv Sakhi (22bcs077)</p>
+                </a>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://www.linkedin.com/in/prem-prakash-59843928b/" target="_blank" style="color: inherit; text-decoration: none;">
+                    <img src="/static/images/image.png" alt="Contributor 2" 
+                         style="border-radius: 50%; width: 80px; height: 80px;">
+                    <p>Prem Prakash (22bcs090)</p>
+                </a>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://www.linkedin.com/in/shiva-rathore-93bb83257/" target="_blank" style="color: inherit; text-decoration: none;">
+                    <img src="/static/images/image4.png" alt="Contributor 2" 
+                         style="border-radius: 50%; width: 80px; height: 80px;">
+                    <p>Shiva Rathore (22bcs116)</p>
+                </a>
+            </div>
+            <!-- Add more contributors as needed -->
+        </div>
+    </footer>
+    
+
     <script>
         MathJax.typeset();  // Rerender MathJax content when loaded
     </script>
 </body>
+
+
+
 
 
 </html>
