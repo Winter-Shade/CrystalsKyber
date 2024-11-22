@@ -123,3 +123,14 @@ table.card td {
 table.card tr:hover {
     background-color: #f9f9f9;
 }
+
+table.card th:hover {
+    background-color: #5effd1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+table.card td:hover {
+    background-color: #d8d8d8;
+    cursor:auto;
+    transition: background-color 0.3s ease;
+}
