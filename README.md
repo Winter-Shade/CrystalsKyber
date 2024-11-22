@@ -21,16 +21,16 @@ This project explores and simulates both **post-quantum (Kyber-PKE and NTRU-Encr
 ## About the algorithms: 
 ### Kyber-PKE  
 Kyber-PKE is a post-quantum cryptographic algorithm standardized by NIST in FIPS 203. It is designed to be secure against quantum computers, making it a reliable choice for future-proof encryption. Kyber is based on the hardness of the Decisional Module Learning With Errors (D-MLWE) problem, which is extremely difficult to solve with both classical and quantum methods. Kyber is particularly efficient for key exchange (Kyber-KEM), where it securely establishes symmetric encryption keys for use in other encryption algorithms. 
-(Parameters used in our project: q=3329, n=256, k=3, eta1 = 2, eta2= 2)
-(Resources used: 
-https://eprint.iacr.org/2017/634.pdf
-https://cryptopedia.dev/posts/kyber/
+(Parameters used in our project: q=3329, n=256, k=3, eta1 = 2, eta2= 2)       
+(Resources used:      
+https://eprint.iacr.org/2017/634.pdf     
+https://cryptopedia.dev/posts/kyber/     
 https://youtube.com/playlist?list=PLA1qgQLL41SSUOHlq8ADraKKzv47v2yrF&si=Sj9G9GGmQtG0mAfw )
 
 ### NTRUEncrypt  
 NTRUEncrypt is a lattice-based encryption algorithm offering strong security against quantum and classical adversaries. It relies on the difficulty of solving the Shortest Vector Problem (SVP) and Closest Vector Problem (CVP) in high-dimensional lattices. It relies on the presumed difficulty of factoring certain polynomials in a truncated polynomial ring into a quotient of two polynomials having very small coefficients. Breaking the cryptosystem is strongly related, though not equivalent, to the algorithmic problem of lattice reduction in certain lattices. 
 (Parameters used in our project: N = 256, p = 3,  q = 2048,  d = 3 )       
-(Resources used:        
+(Resources used:          
 https://en.wikipedia.org/wiki/NTRUEncrypt    
 https://youtu.be/_nTWHgLDxp0?si=39y1GBtNNAXK03c8)
 
