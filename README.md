@@ -29,22 +29,25 @@ https://youtube.com/playlist?list=PLA1qgQLL41SSUOHlq8ADraKKzv47v2yrF&si=Sj9G9GGm
 
 ### NTRUEncrypt  
 NTRUEncrypt is a lattice-based encryption algorithm offering strong security against quantum and classical adversaries. It relies on the difficulty of solving the Shortest Vector Problem (SVP) and Closest Vector Problem (CVP) in high-dimensional lattices. It relies on the presumed difficulty of factoring certain polynomials in a truncated polynomial ring into a quotient of two polynomials having very small coefficients. Breaking the cryptosystem is strongly related, though not equivalent, to the algorithmic problem of lattice reduction in certain lattices. 
-(Parameters used in our project: N = 256, p = 3,  q = 2048,  d = 3 )   
-(Resources used:    
+(Parameters used in our project: N = 256, p = 3,  q = 2048,  d = 3 )       
+(Resources used:        
 https://en.wikipedia.org/wiki/NTRUEncrypt    
 https://youtu.be/_nTWHgLDxp0?si=39y1GBtNNAXK03c8)
 
 ### AES (Advanced Encryption Standard)  
-AES is a symmetric encryption algorithm standardized by NIST and widely adopted for securing data in various applications. It uses substitution-permutation networks and operates on fixed block sizes of 128 bits, with key sizes of 128, 192, or 256 bits. AES is renowned for its efficiency and strong security, as it is resistant to known attacks, including differential and linear cryptanalysis.          
-(Resources used:        
+AES is a symmetric encryption algorithm standardized by NIST and widely adopted for securing data in various applications. It uses substitution-permutation networks and operates on fixed block sizes of 128 bits, with key sizes of 128, 192, or 256 bits. AES is renowned for its efficiency and strong security, as it is resistant to known attacks, including differential and linear cryptanalysis.              
+  (Resources used:        
 https://www.geeksforgeeks.org/advanced-encryption-standard-aes/        
 https://pypi.org/project/aes/ )
 
-### 3DES (Triple Data Encryption Standard)  
-Triple Data Encryption Standard (3DES) enhances the security of the original DES algorithm by applying the encryption process three times using two or three different keys. While it improves the cryptographic strength over DES, it retains compatibility with legacy systems. 3DES provides a key size of up to 168 bits, offering moderate security but with relatively lower performance compared to modern encryption algorithms like AES. Despite being gradually phased out, 3DES remains a reliable option in systems requiring compatibility with older standards.    
+### 3DES (Triple Data Encryption Standard) 
+Triple Data Encryption Standard (3DES) enhances the security of the original DES algorithm by applying the encryption process three times using two or three different keys. While it improves the cryptographic strength over DES, it retains compatibility with legacy systems. 3DES provides a key size of up to 168 bits, offering moderate security but with relatively lower performance compared to modern encryption algorithms like AES. Despite being gradually phased out, 3DES remains a reliable option in systems requiring compatibility with older standards.       
 (Resources used:    
 https://en.wikipedia.org/wiki/Triple_DES    
 https://pypi.org/project/pyDes/)
+
+ 
+
 ---
 
 ## **Technology Stack**
