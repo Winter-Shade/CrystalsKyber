@@ -59,17 +59,17 @@ https://pypi.org/project/pyDes/)
 --- 
 
 ## Screenshots:
-[![Main Page](https://github.com/user-attachments/assets/51ceda4c-215a-495d-a238-ac4d9d0af2c8)](https://bridgingpqc-production.up.railway.app/)
+<a href="https://bridgingpqc-production.up.railway.app/" target="_blank">
+  <img src="https://github.com/user-attachments/assets/51ceda4c-215a-495d-a238-ac4d9d0af2c8" alt="Main Page Screenshot">
+</a>
 
+<a href="https://bridgingpqc-production.up.railway.app/" target="_blank">
+  <img src="https://github.com/user-attachments/assets/565145a9-ed3c-49fc-853c-45698ceef2b3" alt="Screenshot 2">
+</a>
 
-[![2](https://github.com/user-attachments/assets/565145a9-ed3c-49fc-853c-45698ceef2b3)](https://bridgingpqc-production.up.railway.app/)
-
-
-
-
-[![Kyber main page](https://github.com/user-attachments/assets/102dd455-b441-4387-bfe6-04de7558d103)](https://bridgingpqc-production.up.railway.app/kyber)
-
-
+<a href="https://bridgingpqc-production.up.railway.app/kyber" target="_blank">
+  <img src="https://github.com/user-attachments/assets/102dd455-b441-4387-bfe6-04de7558d103" alt="Kyber Main Page">
+</a>
 
 ![Kyber-keys generated](https://github.com/user-attachments/assets/20a7f5e3-c729-48fe-9b76-0ebcd2bf28b7)
 
@@ -85,10 +85,9 @@ https://pypi.org/project/pyDes/)
 
 ![Kyber Step3](https://github.com/user-attachments/assets/bf674cab-ce8d-4fbb-9a46-6c01632f19fe)
 
-[![NTRU MAIN](https://github.com/user-attachments/assets/58292f0a-5dc4-4a95-870b-53add6bc0067)](https://bridgingpqc-production.up.railway.app/ntru)
-
-
-
+<a href="https://bridgingpqc-production.up.railway.app/ntru" target="_blank">
+  <img src="https://github.com/user-attachments/assets/58292f0a-5dc4-4a95-870b-53add6bc0067" alt="NTRU Main Page">
+</a>
 
 ![ntru1](https://github.com/user-attachments/assets/2aac29a2-302e-41d0-96f1-31a4bc7a1a57)
 ![11](https://github.com/user-attachments/assets/cb020b60-4583-4853-b223-5b3278c0fa0e)
@@ -101,25 +100,34 @@ https://pypi.org/project/pyDes/)
 ![ntru3](https://github.com/user-attachments/assets/5c11defb-26ab-4706-952d-157cf657638b)
 
 
-[![aes](https://github.com/user-attachments/assets/6e39ee42-9c6a-44fe-848c-07e371fa86e9)](https://bridgingpqc-production.up.railway.app/AES)
-
+<a href="https://bridgingpqc-production.up.railway.app/AES" target="_blank">
+  <img src="https://github.com/user-attachments/assets/6e39ee42-9c6a-44fe-848c-07e371fa86e9" alt="AES Page">
+</a>
 
 ![aes -2](https://github.com/user-attachments/assets/a3af2daf-12ce-4b3b-b94a-dd2f3b089e8f)
 
 
-[![des3](https://github.com/user-attachments/assets/12ad255c-582e-416b-b69d-510d1342b3f2)](https://bridgingpqc-production.up.railway.app/DES)
-
-
-
+<a href="https://bridgingpqc-production.up.railway.app/DES" target="_blank">
+  <img src="https://github.com/user-attachments/assets/12ad255c-582e-416b-b69d-510d1342b3f2" alt="DES3 Page">
+</a>
 
 ![des3-2](https://github.com/user-attachments/assets/e265c3a5-f559-4fca-8793-b560a4f10cdf)
 
 
-[![17](https://github.com/user-attachments/assets/fa992337-b9c7-429c-95ce-b22aa854a770)](https://bridgingpqc-production.up.railway.app/Table)
+<a href="https://bridgingpqc-production.up.railway.app/Table" target="_blank">
+  <img src="https://github.com/user-attachments/assets/fa992337-b9c7-429c-95ce-b22aa854a770" alt="Table Page">
+</a>
 
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![Flask](https://img.shields.io/badge/Flask-2.0.3-green)
-![Deployment](https://img.shields.io/badge/Deployed-Railway-success)
+<a href="https://www.python.org/downloads/release/python-380/" target="_blank">
+  <img src="https://img.shields.io/badge/python-3.8%2B-blue" alt="Python 3.8+ Badge">
+</a>
+<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">
+  <img src="https://img.shields.io/badge/Flask-2.0.3-green" alt="Flask 2.0.3 Badge">
+</a>
+<a href="https://railway.app/" target="_blank">
+  <img src="https://img.shields.io/badge/Deployed-Railway-success" alt="Railway Deployment Badge">
+</a>
+
 
 ---
 ## Run Locally
@@ -130,22 +138,3 @@ Install the required dependencies and run flask server:
    ```bash
    pip install -r requirements.txt
    flask run
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
