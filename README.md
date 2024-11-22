@@ -119,9 +119,15 @@ https://pypi.org/project/pyDes/)
 ![17](https://github.com/user-attachments/assets/fa992337-b9c7-429c-95ce-b22aa854a770)
 
 
+---
+## Run Locally
 
+To run the project locally, follow these steps:
 
-
+Install the required dependencies and run flask server:
+   ```bash
+   pip install -r requirements.txt
+   flask run
 
 
 
