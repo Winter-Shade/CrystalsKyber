@@ -31,7 +31,15 @@ function generateKeys() {
 }
 
 function encryptMessage() {
-    const message = document.getElementById('binaryMessage').value;
+    const message = document.getElementById('binaryMessage').value.trim();
+
+    // Check if the message is in binary format
+    if (!/^[01]+$/.test(message)) {
+        alert("Message is not in binary format. Please enter a valid binary message.");
+        return; // Stop further execution
+    }
+
+    // Proceed with the fetch request if the message is binary
     fetch('/generate_ciphertext', {
         method: 'POST',
         headers: {
@@ -53,6 +61,7 @@ function encryptMessage() {
 
     document.getElementById("matrixSection2").style.display = "block";
 }
+
 
 function decryptMessage(){
     fetch('/decrypt_message', {
