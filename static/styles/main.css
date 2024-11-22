@@ -1,23 +1,50 @@
-body {
-  background-color: #90eeee;
-  /* padding: 30px; */
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
   margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure both html and body fill the full height of the viewport */
+}
+
+/* Body setup */
+body {
+  background-color: #90eeee; /* Body background color */
   font-family: 'Chakra Petch', Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body takes at least the full viewport height */
 }
+
+/* Main content area */
+main {
+  flex-grow: 1;  /* Ensures the main content takes up available space */
+}
+
+/* Footer setup */
+footer {
+  width: 100%; 
+  background-color: #333; /* Footer background color */
+  color: white; 
+  padding: 20px; 
+  text-align: center;
+  margin-top: 20px; /* Space above the footer */
+  position: relative;
+  bottom: 0;
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+
+/* Prevent any vertical body overflow */
+body > main {
+  flex-grow: 1;
+  overflow: auto; /* Prevent body overflow when the main content is too long */
+}
+
+
 
 .Jinja-body{
   margin: 30px 200px 30px 200px;
   padding: 30px;
-}
-
-footer {
-  width: 100%; 
-  background-color: #333; 
-  color: white; 
-  padding: 20px; 
-  text-align: center; 
-  margin-top: 20px;
 }
 
 .card {
