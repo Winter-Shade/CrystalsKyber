@@ -59,16 +59,15 @@ https://pypi.org/project/pyDes/)
 --- 
 
 ## Screenshots:
-![Main Page (1)](https://github.com/user-attachments/assets/51ceda4c-215a-495d-a238-ac4d9d0af2c8)
+[![Main Page](https://github.com/user-attachments/assets/51ceda4c-215a-495d-a238-ac4d9d0af2c8)](https://bridgingpqc-production.up.railway.app/)
+
+
+[![2](https://github.com/user-attachments/assets/565145a9-ed3c-49fc-853c-45698ceef2b3)](https://bridgingpqc-production.up.railway.app/)
 
 
 
-![2](https://github.com/user-attachments/assets/565145a9-ed3c-49fc-853c-45698ceef2b3)
 
-
-
-
-![Kyber main page](https://github.com/user-attachments/assets/102dd455-b441-4387-bfe6-04de7558d103)
+[![Kyber main page](https://github.com/user-attachments/assets/102dd455-b441-4387-bfe6-04de7558d103)](https://bridgingpqc-production.up.railway.app/kyber)
 
 
 
@@ -86,7 +85,7 @@ https://pypi.org/project/pyDes/)
 
 ![Kyber Step3](https://github.com/user-attachments/assets/bf674cab-ce8d-4fbb-9a46-6c01632f19fe)
 
-![NTRU MAIN](https://github.com/user-attachments/assets/58292f0a-5dc4-4a95-870b-53add6bc0067)
+[![NTRU MAIN](https://github.com/user-attachments/assets/58292f0a-5dc4-4a95-870b-53add6bc0067)](https://bridgingpqc-production.up.railway.app/ntru)
 
 
 
@@ -102,13 +101,13 @@ https://pypi.org/project/pyDes/)
 ![ntru3](https://github.com/user-attachments/assets/5c11defb-26ab-4706-952d-157cf657638b)
 
 
-![aes](https://github.com/user-attachments/assets/6e39ee42-9c6a-44fe-848c-07e371fa86e9)
+[![aes](https://github.com/user-attachments/assets/6e39ee42-9c6a-44fe-848c-07e371fa86e9)](https://bridgingpqc-production.up.railway.app/AES)
 
 
 ![aes -2](https://github.com/user-attachments/assets/a3af2daf-12ce-4b3b-b94a-dd2f3b089e8f)
 
 
-![des3](https://github.com/user-attachments/assets/12ad255c-582e-416b-b69d-510d1342b3f2)
+[![des3](https://github.com/user-attachments/assets/12ad255c-582e-416b-b69d-510d1342b3f2)](https://bridgingpqc-production.up.railway.app/DES)
 
 
 
@@ -116,8 +115,11 @@ https://pypi.org/project/pyDes/)
 ![des3-2](https://github.com/user-attachments/assets/e265c3a5-f559-4fca-8793-b560a4f10cdf)
 
 
-![17](https://github.com/user-attachments/assets/fa992337-b9c7-429c-95ce-b22aa854a770)
+[![17](https://github.com/user-attachments/assets/fa992337-b9c7-429c-95ce-b22aa854a770)](https://bridgingpqc-production.up.railway.app/Table)
 
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Flask](https://img.shields.io/badge/Flask-2.0.3-green)
+![Deployment](https://img.shields.io/badge/Deployed-Railway-success)
 
 ---
 ## Run Locally
