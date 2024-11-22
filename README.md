@@ -1,18 +1,8 @@
 # **Bridging Cryptography: Simulating Post-Quantum and Classical Algorithms**
 
-This project explores and simulates both **post-quantum** and **classical encryption algorithms**, highlighting the importance of cryptography in the face of evolving technological challenges, such as quantum computing. The implementation provides an intuitive interface for users to learn, experiment, and compare encryption techniques.
-
+This project explores and simulates both **post-quantum (Kyber-PKE and NTRU-Encrypt)** and **classical encryption algorithms (AES and DES3)**.
 ---
 
-## **Project Status**
-| Task                            | Status |
-|---------------------------------|--------|
-| **Implement KyberPKE**          | ✅ Done |
-| **Frontend**                    | ✅ Done |
-| **Implement NTRU-Encrypt**      | ✅ Done |
-| **Implement DES and AES**       | ✅ Done |
-
----
 ## Team Members:
 
 - Srijan Shukla (22bcs124)
@@ -20,16 +10,28 @@ This project explores and simulates both **post-quantum** and **classical encryp
 - Prem Prakash (22bcs090)
 - Shiva Rathore (22bcs116)
 ---
+## **Project Status**
+| Task                            | Status |
+|---------------------------------|--------|
+| **Implement KyberPKE**          | ✅ Done |
+| **Frontend**                    | ✅ Done |
+| **Implement NTRU-Encrypt**      | ✅ Done |
+| **Implement DES and AES**       | ✅ Done |
+---
+## About the algorithms: 
+### Kyber-PKE  
+Kyber-PKE is a post-quantum cryptographic algorithm standardized by NIST in FIPS 203. It is designed to be secure against quantum computers, making it a reliable choice for future-proof encryption. Kyber is based on the hardness of the Decisional Module Learning With Errors (D-MLWE) problem, which is extremely difficult to solve with both classical and quantum methods. Kyber is particularly efficient for key exchange (Kyber-KEM), where it securely establishes symmetric encryption keys for use in other encryption algorithms. 
+(Parameters used in our project: q=3329, n=256, k=3, eta1 = 2, eta2= 2)
 
-- **Post-Quantum Algorithms**:
-  - **KyberPKE**: Implemented using SymPy and NumPy library
-  - **NTRU-Encrypt**: Implemented using SymPy and Numpy Library
+### NTRUEncrypt  
+NTRUEncrypt is a lattice-based encryption algorithm offering strong security against quantum and classical adversaries. It relies on the difficulty of solving the Shortest Vector Problem (SVP) and Closest Vector Problem (CVP) in high-dimensional lattices, making it highly resistant to attacks, including those by quantum computers. NTRUEncrypt is computationally efficient, with fast encryption and decryption operations.
+(Parameters used in our project: N = 256, p = 3,  q = 2048,  d = 3 )
 
-- **Classical Algorithms**:
-  - **DES3** (Data Encryption Standard): Implemented using Cryptography Library
-  - **AES** (Advanced Encryption Standard): Implemented using Cryptography Library
+### AES (Advanced Encryption Standard)  
+AES is a symmetric encryption algorithm standardized by NIST and widely adopted for securing data in various applications. It uses substitution-permutation networks and operates on fixed block sizes of 128 bits, with key sizes of 128, 192, or 256 bits. AES is renowned for its efficiency and strong security, as it is resistant to known attacks, including differential and linear cryptanalysis. 
 
-
+### 3DES (Triple Data Encryption Standard)  
+Triple Data Encryption Standard (3DES) enhances the security of the original DES algorithm by applying the encryption process three times using two or three different keys. While it improves the cryptographic strength over DES, it retains compatibility with legacy systems. 3DES provides a key size of up to 168 bits, offering moderate security but with relatively lower performance compared to modern encryption algorithms like AES. Despite being gradually phased out, 3DES remains a reliable option in systems requiring compatibility with older standards.
 
 ---
 
@@ -37,53 +39,89 @@ This project explores and simulates both **post-quantum** and **classical encryp
 - **Frontend**: HTML, CSS, JavaScript 
 - **Backend**: Flask
 - **Programming Language**: Python
-- **Deployment**: Railway (https://bridgingpqc-production.up.railway.app/) (Note: Since we are using a free server on Railway, the deployed site might take several minutes to load and work smoothly) 
-
-
-
-## Screenshots:
-
-<img width="1440" alt="Screenshot 2024-11-19 at 8 27 56 AM" src="https://github.com/user-attachments/assets/ef6473ee-31a4-4a65-af12-e2b32565678d">
----
-### Kyber:
-
-
-
-<img width="1440" alt="Screenshot 2024-11-19 at 8 26 57 AM" src="https://github.com/user-attachments/assets/a2d03668-d14b-487f-b0f8-d03ed8115398">
-
-<img width="1440" alt="Screenshot 2024-11-19 at 8 27 18 AM" src="https://github.com/user-attachments/assets/8dc4bd41-8d77-41c8-b75d-57dfb42ba875">
-
-<img width="1440" alt="Screenshot 2024-11-19 at 8 27 38 AM" src="https://github.com/user-attachments/assets/d160a0c3-5cf2-43fd-907a-f0613e975028">
-
-
-
-<img width="1440" alt="Screenshot 2024-11-19 at 8 27 45 AM" src="https://github.com/user-attachments/assets/ba8d44fd-be34-46db-add9-f64248a77af3">
-
+- **Deployment**: Railway (https://bridgingpqc-production.up.railway.app/) (**Note**: Since we are using a free server on Railway, the deployed site might take several minutes to load and might not work smoothly) 
 
 --- 
-### NTRU Encrypt: 
 
-<img width="1440" alt="Screenshot 2024-11-19 at 8 28 06 AM" src="https://github.com/user-attachments/assets/ab93423f-4377-4464-807c-246a90bc0993">
-
-
-<img width="1440" alt="Screenshot 2024-11-19 at 8 28 14 AM" src="https://github.com/user-attachments/assets/ef342bb3-439a-40c8-a29c-8d078506649a">
+## Screenshots:
+![Main Page (1)](https://github.com/user-attachments/assets/51ceda4c-215a-495d-a238-ac4d9d0af2c8)
 
 
-<img width="1440" alt="Screenshot 2024-11-19 at 8 28 38 AM" src="https://github.com/user-attachments/assets/4bda2277-a876-4998-967f-98e68dd15c90">
 
-<img width="1440" alt="Screenshot 2024-11-19 at 8 28 45 AM" src="https://github.com/user-attachments/assets/cdc5cd79-522a-431a-848b-7779ac185caa">
-
-### DES3 AND AES
-<img width="1440" alt="Screenshot 2024-11-19 at 8 29 16 AM" src="https://github.com/user-attachments/assets/77965918-54a3-4ea2-8e90-3a444a4cca27">
+![2](https://github.com/user-attachments/assets/565145a9-ed3c-49fc-853c-45698ceef2b3)
 
 
-<img width="1440" alt="Screenshot 2024-11-19 at 8 29 21 AM" src="https://github.com/user-attachments/assets/99c9aa40-1eeb-4902-94ce-31e4ce68ad1a">
 
-<img width="1440" alt="Screenshot 2024-11-19 at 8 29 37 AM" src="https://github.com/user-attachments/assets/3c266981-dc6f-4ddb-a1fd-9de2945af693">
 
-Comparison: 
+![Kyber main page](https://github.com/user-attachments/assets/102dd455-b441-4387-bfe6-04de7558d103)
 
-<img width="1440" alt="Screenshot 2024-11-19 at 8 29 44 AM" src="https://github.com/user-attachments/assets/ebe36d17-8f88-4a1d-91b2-6d1a554a5fad">
+
+
+![Kyber-keys generated](https://github.com/user-attachments/assets/20a7f5e3-c729-48fe-9b76-0ebcd2bf28b7)
+
+![Kyber](https://github.com/user-attachments/assets/33febe90-d5ef-49c9-b84c-2cfe0c9ffd64)
+
+
+
+![message-encryption by bob](https://github.com/user-attachments/assets/392109a4-a815-43ad-98da-02eb2be189f8)
+
+
+![7](https://github.com/user-attachments/assets/65d3b6cc-1fc6-4e32-979b-d3a13b1c93e7)
+
+
+![Kyber Step3](https://github.com/user-attachments/assets/bf674cab-ce8d-4fbb-9a46-6c01632f19fe)
+
+![NTRU MAIN](https://github.com/user-attachments/assets/58292f0a-5dc4-4a95-870b-53add6bc0067)
+
+
+
+
+![ntru1](https://github.com/user-attachments/assets/2aac29a2-302e-41d0-96f1-31a4bc7a1a57)
+![11](https://github.com/user-attachments/assets/cb020b60-4583-4853-b223-5b3278c0fa0e)
+
+
+
+
+
+
+![ntru3](https://github.com/user-attachments/assets/5c11defb-26ab-4706-952d-157cf657638b)
+
+
+![aes](https://github.com/user-attachments/assets/6e39ee42-9c6a-44fe-848c-07e371fa86e9)
+
+
+![aes -2](https://github.com/user-attachments/assets/a3af2daf-12ce-4b3b-b94a-dd2f3b089e8f)
+
+
+![des3](https://github.com/user-attachments/assets/12ad255c-582e-416b-b69d-510d1342b3f2)
+
+
+
+
+![des3-2](https://github.com/user-attachments/assets/e265c3a5-f559-4fca-8793-b560a4f10cdf)
+
+
+![17](https://github.com/user-attachments/assets/fa992337-b9c7-429c-95ce-b22aa854a770)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
