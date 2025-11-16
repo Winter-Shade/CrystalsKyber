@@ -63,33 +63,11 @@ https://pypi.org/project/pyDes/)
   <img src="https://github.com/user-attachments/assets/51ceda4c-215a-495d-a238-ac4d9d0af2c8" alt="Main Page Screenshot">
 
 
-  <img src="https://github.com/user-attachments/assets/565145a9-ed3c-49fc-853c-45698ceef2b3" alt="Screenshot 2">
-
 
 
   <img src="https://github.com/user-attachments/assets/102dd455-b441-4387-bfe6-04de7558d103" alt="Kyber Main Page">
 
 
-![Kyber-keys generated](https://github.com/user-attachments/assets/20a7f5e3-c729-48fe-9b76-0ebcd2bf28b7)
-
-![Kyber](https://github.com/user-attachments/assets/33febe90-d5ef-49c9-b84c-2cfe0c9ffd64)
-
-
-
-![message-encryption by bob](https://github.com/user-attachments/assets/392109a4-a815-43ad-98da-02eb2be189f8)
-
-
-![7](https://github.com/user-attachments/assets/65d3b6cc-1fc6-4e32-979b-d3a13b1c93e7)
-
-
-![Kyber Step3](https://github.com/user-attachments/assets/bf674cab-ce8d-4fbb-9a46-6c01632f19fe)
-
-
-  <img src="https://github.com/user-attachments/assets/58292f0a-5dc4-4a95-870b-53add6bc0067" alt="NTRU Main Page">
-
-
-![ntru1](https://github.com/user-attachments/assets/2aac29a2-302e-41d0-96f1-31a4bc7a1a57)
-![11](https://github.com/user-attachments/assets/cb020b60-4583-4853-b223-5b3278c0fa0e)
 
 
 
@@ -100,17 +78,6 @@ https://pypi.org/project/pyDes/)
 
 
 
-  <img src="https://github.com/user-attachments/assets/6e39ee42-9c6a-44fe-848c-07e371fa86e9" alt="AES Page">
-
-
-![aes -2](https://github.com/user-attachments/assets/a3af2daf-12ce-4b3b-b94a-dd2f3b089e8f)
-
-
-
-  <img src="https://github.com/user-attachments/assets/12ad255c-582e-416b-b69d-510d1342b3f2" alt="DES3 Page">
-
-
-![des3-2](https://github.com/user-attachments/assets/e265c3a5-f559-4fca-8793-b560a4f10cdf)
 
 
 <a href="https://bridgingpqc-production.up.railway.app/Table" target="_blank">
